@@ -1,4 +1,5 @@
 cz\educanet\webik\ApiConfig.class
 cz\educanet\webik\User.class
+cz\educanet\webik\LogManager.class
 cz\educanet\webik\UserManager.class
 cz\educanet\webik\UsersResource.class

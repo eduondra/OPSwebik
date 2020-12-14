@@ -13,9 +13,11 @@ public class UsersResource {
     @Inject
     private UserManager userManager;
 
+
     @Inject
     private LogManager logManager;
 
+    @Path ("/register")
     @POST
     public Response register(
 
@@ -35,7 +37,7 @@ public class UsersResource {
             return Response.ok("uživatel se úšpěšně zaregistroval").build();
         }
     }
-
+    @Path ("/login")
     @POST
     public Response login(
             @FormParam("username") String username,
@@ -51,13 +53,16 @@ public class UsersResource {
             return Response.ok("uživatel se úšpěšně přihlásil").build();
         }
     }
-
+    @Path ("/logout")
+    @DELETE
     public Response logout() {
         logManager.logInUser = null;
         return Response.ok("uživatel se odhlásil").build();
     }
 
 
+    @Path ("/user")
+    @GET
     public Response getCurrentUser() {
         if (logManager.logInUser == null) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
